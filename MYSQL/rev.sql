@@ -10,6 +10,7 @@
 --     constraint product primary key (code),
 --     constraint product foreign key(manufacturer) references manufacturers(code)
 -- );
+
 -- insert into manufacturers
 -- VALUES(1, 'sony');
 -- insert into manufacturers
@@ -63,4 +64,31 @@
 -- update products set price=(price-price*0.1) where price>=120;
 
 
+-- inner join
 
+-- select *
+-- from manufacturers
+-- INNER JOIN products
+-- on manufacturers.code=products.manufacturer;
+
+
+-- left join
+
+-- select *
+-- from manufacturers
+-- left JOIN products
+-- on manufacturers.code=products.manufacturer;
+
+
+-- right join
+
+-- select *
+-- from manufacturers
+-- right JOIN products
+-- on manufacturers.code=products.manufacturer;
+
+-- cross join
+
+-- select *
+-- from products
+-- cross join manufacturers;
