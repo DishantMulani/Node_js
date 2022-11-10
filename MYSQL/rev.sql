@@ -10,7 +10,6 @@
 --     constraint product primary key (code),
 --     constraint product foreign key(manufacturer) references manufacturers(code)
 -- );
-
 -- insert into manufacturers
 -- VALUES(1, 'sony');
 -- insert into manufacturers
@@ -43,11 +42,6 @@
 -- VALUES(9, 'toner cartridge', 66, 3);
 -- INSERT INTO products
 -- VALUES(10, 'dvd burner', 180, 2);
-
-
-
-
-
 -- SELECT name from products;
 -- select name,price from products;
 -- SELECT name from products WHERE price<=200;
@@ -60,35 +54,85 @@
 -- SELECT name,price from products order by price limit 1;
 -- INSERT INTO products VALUES(11,'loudspeakers',70,2);
 -- update products set name='laser printer' where code=8;
---  update products set price=(price-price*0.1);
+-- update products set price=(price-price*0.1);
 -- update products set price=(price-price*0.1) where price>=120;
-
-
 -- inner join
-
 -- select *
 -- from manufacturers
 -- INNER JOIN products
 -- on manufacturers.code=products.manufacturer;
-
-
 -- left join
-
 -- select *
 -- from manufacturers
 -- left JOIN products
 -- on manufacturers.code=products.manufacturer;
-
-
 -- right join
-
 -- select *
 -- from manufacturers
 -- right JOIN products
 -- on manufacturers.code=products.manufacturer;
-
 -- cross join
-
 -- select *
 -- from products
 -- cross join manufacturers;
+-- select *
+-- from products a,manufacturers b 
+-- where a.manufacturer=b.code;
+-- select a.name,a.price,b.name
+-- from products a,manufacturers b 
+-- where a.manufacturer=b.code;
+-- SELECT avg(price) ,a.manufacturer
+-- from products a,manufacturers b 
+-- where a.manufacturer=b.code
+-- group by b.code;
+--  SELECT avg(price) ,b.name
+--  from products a,manufacturers b 
+--  where a.manufacturer=b.code
+--  group by b.code;
+-- select avg(price),b.name
+-- FROM products a,manufacturers b
+-- where a.manufacturer=b.code
+-- group by a.manufacturer 
+-- HAVING avg(price)>=150;
+-- select a.price,a.name,b.name
+-- FROM products a,manufacturers b
+-- where a.manufacturer=b.code
+-- group by b.name 
+-- HAVING max(price)=(select max(price) from products);
+-- 1
+-- select description ,sum(qtydisp) 
+-- from product_master p,sales_order_details s 
+-- where p.productno=s.productno
+-- GROUP BY description;
+-- 2
+-- select p.description,sum(s.qtyordered),sum(s.qtyordered*s.productrate)
+-- from product_master p,sales_order_details s
+-- where p.productno=s.productno
+-- GROUP BY p.productno;
+-- 3
+-- select p.description,avg(s.qtyordered),sum(qtyordered*productrate) as sold
+-- from product_master p,sales_order_details s
+-- where p.productno=s.productno
+-- GROUP BY s.orderno
+-- HAVING sold>15000;
+
+-- 4
+
+-- select sum(s.qtyordered),so.orderdate
+-- from sales_order so,sales_order_details s
+-- where so.orderno = s.orderno
+-- group by so.orderdate
+-- having DATE_FORMAT(so.orderdate, "%m")=6;
+
+-- 1
+
+-- select c.name,p.description,so.orderno
+-- from client_master c,product_master p,sales_order so,sales_order_details s
+-- where c.clientno=so.clientno
+-- and p.productno=s.productno 
+-- and s.orderno=so.orderno
+-- group by p.productno
+-- having c.name="ivan";
+
+-- 2
+
