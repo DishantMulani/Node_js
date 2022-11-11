@@ -99,33 +99,29 @@
 -- where a.manufacturer=b.code
 -- group by b.name 
 -- HAVING max(price)=(select max(price) from products);
--- 1
+-- 1.A
 -- select description ,sum(qtydisp) 
 -- from product_master p,sales_order_details s 
 -- where p.productno=s.productno
 -- GROUP BY description;
--- 2
+-- 1.B
 -- select p.description,sum(s.qtyordered),sum(s.qtyordered*s.productrate)
 -- from product_master p,sales_order_details s
 -- where p.productno=s.productno
 -- GROUP BY p.productno;
--- 3
+-- 1.C
 -- select p.description,avg(s.qtyordered),sum(qtyordered*productrate) as sold
 -- from product_master p,sales_order_details s
 -- where p.productno=s.productno
 -- GROUP BY s.orderno
 -- HAVING sold>15000;
-
--- 4
-
+-- 1.D
 -- select sum(s.qtyordered),so.orderdate
 -- from sales_order so,sales_order_details s
 -- where so.orderno = s.orderno
 -- group by so.orderdate
 -- having DATE_FORMAT(so.orderdate, "%m")=6;
-
--- 1
-
+-- 2.A
 -- select c.name,p.description,so.orderno
 -- from client_master c,product_master p,sales_order so,sales_order_details s
 -- where c.clientno=so.clientno
@@ -133,6 +129,64 @@
 -- and s.orderno=so.orderno
 -- group by p.productno
 -- having c.name="ivan";
+-- 2.B
+-- select s.orderno,
+--     s.productno,
+--     p.description,
+--     so.orderdate,
+--     so.delydate
+-- from client_master c,
+--     product_master p,
+--     sales_order so,
+--     sales_order_details s
+-- where c.clientno = so.clientno
+--     and p.productno = s.productno
+--     and s.orderno = so.orderno
+--     and DATE_FORMAT(so.orderdate, "%m") = DATE_FORMAT(so.delydate, "%m");
 
--- 2
+
+
+
+-- select * from product_master;
+-- SELECT * FROM client_master;
+-- SELECT * FROM sales_order;
+-- SELECT * FROM sales_order_details;
+
+-- 2.C
+
+-- select p.productno,p.description,sum(s.qtyordered)
+-- from product_master p,sales_order_details s
+-- WHERE p.productno=s.productno
+-- GROUP BY p.productno
+-- order by sum(s.qtyordered) desc limit 1;
+
+-- 2.D
+
+-- select c.name 
+-- from client_master c,sales_order so,sales_order_details s,product_master P
+-- where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
+-- and p.description="1.44floppies";
+
+-- 2.E
+
+--  select p.description,c.name
+--  from client_master c,sales_order so,sales_order_details s,product_master P
+--  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
+--  and s.qtyordered<5 and p.description="mouse";
+
+-- 2.F
+
+--  select c.name,p.description,s.qtyordered
+--  from client_master c,sales_order so,sales_order_details s,product_master P
+--  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
+--  and   c.name in ("ivan","ravi");
+
+-- 2.G
+
+-- select c.name,p.description,s.qtyordered
+--  from client_master c,sales_order so,sales_order_details s,product_master P
+--  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
+--  and   c.clientno in ("c00001","c00002");
+
+-- 3.A
 
