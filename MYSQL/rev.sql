@@ -143,50 +143,74 @@
 --     and p.productno = s.productno
 --     and s.orderno = so.orderno
 --     and DATE_FORMAT(so.orderdate, "%m") = DATE_FORMAT(so.delydate, "%m");
-
-
-
-
 -- select * from product_master;
 -- SELECT * FROM client_master;
 -- SELECT * FROM sales_order;
 -- SELECT * FROM sales_order_details;
-
 -- 2.C
-
 -- select p.productno,p.description,sum(s.qtyordered)
 -- from product_master p,sales_order_details s
 -- WHERE p.productno=s.productno
 -- GROUP BY p.productno
 -- order by sum(s.qtyordered) desc limit 1;
-
 -- 2.D
-
 -- select c.name 
 -- from client_master c,sales_order so,sales_order_details s,product_master P
 -- where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
 -- and p.description="1.44floppies";
-
 -- 2.E
-
 --  select p.description,c.name
 --  from client_master c,sales_order so,sales_order_details s,product_master P
 --  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
 --  and s.qtyordered<5 and p.description="mouse";
-
 -- 2.F
-
 --  select c.name,p.description,s.qtyordered
 --  from client_master c,sales_order so,sales_order_details s,product_master P
 --  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
 --  and   c.name in ("ivan","ravi");
-
 -- 2.G
-
 -- select c.name,p.description,s.qtyordered
 --  from client_master c,sales_order so,sales_order_details s,product_master P
 --  where c.clientno=so.clientno and so.orderno=s.orderno and s.productno=p.productno
 --  and   c.clientno in ("c00001","c00002");
-
 -- 3.A
-
+-- select productno,description 
+-- from product_master
+-- where  productno not in (select productno from sales_order_details);
+-- 3.B
+-- select name,address1,address2,city,pincode
+-- from client_master 
+-- where clientno = (select clientno from sales_order WHERE orderno in("o19001"));
+-- 3.C
+-- select name 
+-- from client_master
+-- WHERE clientno in (SELECT clientno from sales_order WHERE orderdate < "2004-05-02");
+-- 3.D
+-- SELECT clientno,
+--     name
+-- from client_master
+-- where clientno in(
+--         SELECT clientno
+--         FROM sales_order
+--         WHERE orderno in(
+--                 SELECT orderno
+--                 from sales_order_details
+--                 WHERE productno in(
+--                         SELECT productno
+--                         from product_master
+--                         WHERE description = "mouse"
+--                     )
+--             )
+--     );
+-- 3.E
+-- SELECT name
+-- from client_master
+-- WHERE Clientno in(
+--         SELECT clientno
+--         FROM sales_order
+--         WHERE orderno in(
+--                 SELECT orderno
+--                 from sales_order_details
+--                 WHERE (qtyordered * productrate) >= 10000
+--             )
+--     );
