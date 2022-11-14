@@ -5,5 +5,5 @@ if (a < e) {
 console.log("\n");
 for (i = a; i <= e; i++) {
     
-    console.log(" ",i*i);
+    console.log(" ",i*i*i);
 }
