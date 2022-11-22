@@ -1,5 +1,4 @@
-// 1. Name Function
-// ----------------------
+// <===== 1. Name Function =====>
 // <-- ex : 1 -->
 // function fun_one(arg1,arg2,arg3){
 //     console.log(arg1,arg2,arg3);
