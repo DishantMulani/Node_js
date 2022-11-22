@@ -3,14 +3,14 @@
 // function fun_one(arg1,arg2,arg3){
 //     console.log(arg1,arg2,arg3);
 // }
-//       Input                        Output
-// fun_one("A","B","C");    ------->  A B C
-// fun_one("A","B");        ------->  A B undefined
-// fun_one();               ------->  undefined undefined undefined
-// fun_one(undefined,"A");  ------->  undefined A undefined
-// fun_one(null,null,null); ------->  null null null
-// fun_one(null,"  ",null); ------->  null      null
-// fun_one((),{},[]);       ------->  () {} []
+//       Input                                 Output
+// fun_one("A","B","C");         ------->  A B C
+// fun_one("A","B");             ------->  A B undefined
+// fun_one();                    ------->  undefined undefined undefined
+// fun_one(undefined,"A");       ------->  undefined A undefined
+// fun_one(null,null,null);      ------->  null null null
+// fun_one(null,"  ",null);      ------->  null      null
+// fun_one((),{},[]);            ------->  () {} []
 
 // <-- ex : 2 -->
 //         Input
