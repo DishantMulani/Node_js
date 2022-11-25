@@ -5,7 +5,7 @@ var n;
 
 
 function reverse(n) {
-    console.log(n);
+    console.log("Given Number =",n);
     while (n > 0) {
         rem = n % 10;
         rev = (rev * 10) + rem;
