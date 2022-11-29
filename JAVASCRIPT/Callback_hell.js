@@ -15,7 +15,7 @@ let production = () => {
     setTimeout(() => {
         console.log(`Cut The Fruit....`)
         setTimeout(() => {
-            console.log(`Add Water And ice`)
+            console.log(`Add ${stocks.liquid[0]} And ${stocks.liquid[1]}`)
             setTimeout(() => {
                 console.log(`Start The Machine`)
                 setTimeout(() => {
