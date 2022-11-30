@@ -54,7 +54,6 @@ let number = 9898989898;
 console.log(contSum(number, sumof));
 
 
-
 // let a = "9898989898";
 // let conArr = number => {
 //     let intarr = Array.from(String(number), Number)
