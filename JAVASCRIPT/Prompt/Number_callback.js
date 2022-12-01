@@ -1,4 +1,4 @@
-
+const prompt = require("prompt-sync")();
 // let sumof = number => {
 //     let sum = 0;
 //     for (let i = 0; i <= number.length; i++)
@@ -18,8 +18,9 @@
 //     return callback(number);
 // }
 
-// let number = 9898989898;
+// let number = parseInt(prompt("Enter 10 Digit Number : "));
 // console.log(total(number, sumof));
+
 
 
 
@@ -50,11 +51,14 @@ function contSum(number, callback) {
     }
 }
 
-let number = 9898989898;
+let number = parseInt(prompt("Enter 10 Digit Number : "));
 console.log(contSum(number, sumof));
 
 
-// let a = "9898989898";
+
+
+
+
 // let conArr = number => {
 //     let intarr = Array.from(String(number), Number)
 //     console.log(intarr);
@@ -67,11 +71,12 @@ console.log(contSum(number, sumof));
 //         console.log(sum);
 //     }
 //     if (sum > 10) {
-//        return conArr(sum);
+//         return conArr(sum);
 //     }
 //     else {
 //         return sum;
 //     }
 // }
-// let val = conArr(a);
-// console.log(val);
+// let val = parseInt(prompt("Enter 10 Digit Number : "));
+// console.log(conArr(val));
+
