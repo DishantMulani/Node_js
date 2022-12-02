@@ -1,29 +1,28 @@
-et sumof = (n) => {
+let sum = (number1) => {
+//     while (number1 > 9) {
+//         console.log(number1);
+//         let sum1 = 0;
+//         while (number1 != 0) {
+//             sum1 = sum1 + number1 % 10;
+//             number1 = parseInt(number1 / 10);
+//         }
+//         number1 = sum1;
+//     }
+//     console.log()
+//     return number1;
+// }
+// let total = (number, work) => {
 
-    let sum = 0;
-    while (n != 0) {
-        sum = sum + n % 10;
-        n = parseInt(n / 10);
-    }
-    return sum;
-}
+//     return new Promise((resolve, reject) => {
 
-let check = (value) => {
-    if (value >= 9) {
-        return value;
-    }
-    else {
-        return 0;
-    }
-}
+//         if (number > 0) {
+//             resolve(console.log(work(number)));
+//         }
+//         else {
+//             reject(console.log(number));
+//         }
+//     })
+// }
 
-function contSum(number, callback) {
-    let n = callback(number)
-    if (n > 9) {
-        let nu = sumof(n);
-        return sumof(nu);
-    }
-}
-
-let number = parseInt(prompt("Enter 10 Digit Number : "));
-console.log(cont
+// let number = 7069182001;
+// total(number, sum);
